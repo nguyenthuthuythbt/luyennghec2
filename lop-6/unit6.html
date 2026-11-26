@@ -311,8 +311,8 @@ function topbar(extra) {
 /* ================= MÀN 1: GIỚI THIỆU ================= */
 function viewIntro() {
   stopAudio(); S.run = null;
-  var name = h('input', { id: 'nm', value: S.user.name || defName(), maxlength: 40, autocomplete: 'off', placeholder: 'Example: Bui Minh Khang' });
-  var cls = h('input', { id: 'cl', value: (S.user.cls && gradeNo && S.user.cls.indexOf(gradeNo) === 0) ? S.user.cls : defCls(), maxlength: 12, autocomplete: 'off', placeholder: 'Example: 6A3' });
+  var name = h('input', { id: 'nm', value: (S.user.name && S.user.name !== defName()) ? S.user.name : '', maxlength: 40, autocomplete: 'off', placeholder: 'Example: ' + defName() });
+  var cls = h('input', { id: 'cl', value: (S.user.cls && gradeNo && S.user.cls.indexOf(gradeNo) === 0 && S.user.cls !== defCls()) ? S.user.cls : '', maxlength: 12, autocomplete: 'off', placeholder: 'Example: ' + defCls() });
   var err = h('div', { class: 'err', role: 'alert' });
   var lvBox = h('div', { class: 'lvl' }), lvTop = h('span', { class: 'chip' });
   function drawLv() { lvBox.innerHTML = ''; lvTop.className = 'chip ' + S.level; lvTop.textContent = LV[S.level].name; ['A2', 'B1', 'B2'].forEach(function (k) {
